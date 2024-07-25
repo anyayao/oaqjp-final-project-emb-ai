@@ -20,9 +20,10 @@ def sent_analyzer():
     sadness = response['sadness']
     dominant_emotion = response['dominant_emotion']
 
-
-    return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {}} and 'sadness': {}}. The dominant emotion is {}}."
-            .format(anger, disgust, fear, joy, sadness, dominant_emotion)
+    if dominant_emotion != None:
+        return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {} and 'sadness': {}. The dominant emotion is {}.".format(anger, disgust, fear, joy, sadness, dominant_emotion)
+    else:
+        return "Invalid text! Please try again!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
